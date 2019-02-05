@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Node example</title>
+</head>
+<body>
+
+<h2>Node real-time Example</h2>
+<p>Open the <b>console</b> to see the messages coming in real-time from the server.</p>
+<p>Best Regards,</p>
+
+<script type="text/javascript">
+    var ws_url = 'ws://' + window.location.host + '/ws';
+    var ws = new WebSocket(ws_url);
+    ws.onopen = function() {
+        console.log("Websocket is open")
+    };
+    ws.onmessage = function(evt) {
+        console.log("Websocket received:", evt.data);
+    };
+    ws.onclose = function() {
+        console.log("Websocket has been closed");
+    };
+</script>
+
+</body>
